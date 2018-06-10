@@ -1,4 +1,5 @@
 # Django settings for imager project.
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -49,12 +50,13 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+FILE_PATH = os.path.dirname(os.path.dirname(__file__))
+MEDIA_ROOT = os.path.join(FILE_PATH, 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
