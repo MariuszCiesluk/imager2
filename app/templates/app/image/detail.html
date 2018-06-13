@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load static %}
 
 {% block title %} Image Detail {% endblock %}
 
 {% block content %}
-<a href="{ url 'upload-image-form' }">upload image form </a>
+{{ title }}
+<br/>
+<img src="{% static image_url %}"/>
 {% endblock %}
