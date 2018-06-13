@@ -4,5 +4,12 @@
 {% block title %} Image Upload {% endblock %}
 
 {% block content %}
-{{ form.as_table }}
+<form method="post" action="." enctype=multipart/form-data>{% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    <tr>
+        <td><input type="submit" name="submit" value="add"/></td>
+    </tr>
+    </table>
+</form>
 {% endblock %}
