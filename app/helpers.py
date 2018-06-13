@@ -27,3 +27,15 @@ def get_image(file_name):
     if founded_file:
         return os.path.join(settings.MEDIA_ROOT, founded_file)
     return None
+
+
+def handle_uploaded_file(f, filename):
+    """
+    save uploaded file to destination
+    :param f: file
+    :param filename: name of file
+    :return: None
+    """
+    with open(os.path.join(settings.MEDIA_ROOT, filename), 'wb+') as destination:
+        for chunk in f.chunks():
+            destination.write(chunk)
