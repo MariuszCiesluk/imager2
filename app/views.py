@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.http import Http404
+from django.http import HttpResponseNotFound
 from django.urls import reverse_lazy
 from django.views.generic import FormView, TemplateView
 
@@ -39,4 +39,4 @@ class ImageView(TemplateView):
             kwargs['image_url'] = image_location
             kwargs['title'] = '{} image'.format(self.kwargs.get('name'))
             return super(ImageView, self).get(request, *args, **kwargs)
-        raise Http404
+        return HttpResponseNotFound()
