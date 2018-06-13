@@ -29,11 +29,11 @@ class ImagerTest(TestCase):
         request_not_existing_image = self.factory.get('/imager/image/red/')
 
         with self.assertRaises(Http404):
-            response = ImageView.as_view(request_not_existing_image)
+            response = ImageView.as_view()(request_not_existing_image)
 
     def test_existing_image(self):
         request_existing_image = self.factory.get('/imager/image/green/')
-        response = ImageView.as_view(request_existing_image)
+        response = ImageView.as_view()(request_existing_image)
         self.assertEqual(response.status_code, 200)
 
 
